@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import * as Icon from 'react-bootstrap-icons';
+import './Styles/index.scss';
+import NavBar from './Components/NavBar/NavBar';
+import ItemsListContainer from './Components/ItemsListContainer/ItemsListContainer';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Proyecto de Malena Trejo
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      <ItemsListContainer greeting="Bienvenidos!"/>
     </div>
   );
 }

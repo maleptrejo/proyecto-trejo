@@ -1,0 +1,24 @@
+@import 'NavBar';
+@import 'variables';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: $base-gray;
+
+    &:visited{
+        color: $base-gray;
+    }
+    &:hover{
+        color: $dark-gray !important;
+    }
+
+}
+
+.font-quicksand{
+    font-family: 'Quicksand', sans-serif;
+}
