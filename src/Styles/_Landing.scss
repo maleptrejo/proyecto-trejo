@@ -1,0 +1,23 @@
+@import 'variables';
+
+.landing-banner{
+    width: 100vw;
+    height: 90vh;
+    background-image: url(https://i.ibb.co/GJYsqQy/breadbaking.jpg);
+    background-size: cover;
+
+    .intro-banner{
+        width:35%;
+        // background:rgba(255,255,255, 0.4);
+        p{
+            color: white;
+            font-size: 3.5em;
+            font-weight: 400;
+            line-height: 45px;
+
+            .smaller{
+                font-size: 2em;
+            }
+        }
+    }
+}

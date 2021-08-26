@@ -1,5 +1,7 @@
 @import 'NavBar';
+@import 'Landing';
 @import 'variables';
+
 
 *{
     margin: 0;
@@ -9,6 +11,7 @@
 
 a {
     color: $base-gray;
+    text-decoration: none;
 
     &:visited{
         color: $base-gray;
@@ -19,8 +22,21 @@ a {
 
 }
 
+hr{
+    background-color: $base-gray;
+}
+
 .font-quicksand{
     font-family: 'Quicksand', sans-serif;
+}
+
+.font-open-sanz{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.font-alumni {
+
+    font-family: 'Alumni Sans', sans-serif;
 }
 
 .img-container{
@@ -32,3 +48,128 @@ a {
         object-fit: contain;
     }
 }
+
+.card-item-detail{
+    height: 250px;
+}
+.img-container-detail{
+    height: 230px;
+    width: 60%;
+    padding-left: 20px !important;
+
+    
+    
+    .img-frame {
+        width: 100%;
+        margin: 0 30px 20px 0;
+
+        img{
+            width: 100%;
+            height: 230px; 
+            object-fit: scale-down;
+        }
+    }
+
+}
+
+.block-ui{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-detail{
+    height: 50vh;
+}
+
+.text-box-detail{
+    width: 35vw;
+    background-color: white;
+    height: 35vh;
+    border-radius: 5px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.overflow-scroll {
+    overflow-y: scroll;
+}
+
+.background-white{
+    background-color: white;
+}
+
+.elementor-divider{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-top: 1px solid $divider-color;
+
+    .elementor-divider-separator{
+
+        width: 100%;
+        
+    }
+}
+
+.font-smaller{
+    font-size: .8rem;
+}
+
+.font-bigger{
+    font-size: 2.5em;
+}
+
+.font-weight-bold{
+    font-weight: 700;
+}
+
+input[type=number]{
+    width: 70px;
+    height: 35px;
+    border-radius: 0px;
+    border: 1px solid $divider-color;
+    padding: 0 5px 0 10px;
+
+  
+}
+
+.basket-2-text {
+    height: 35px;
+    background-color: black;
+    color: white;
+    width: 140px;
+    border-radius:0;
+    border: none;
+    padding: 0 10px;
+    &:hover {
+        color: white;
+        
+    }
+}
+
+.shrink-on-hover {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .shrink-on-hover:hover, .shrink-on-hover:focus, .shrink-on-hover:active {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+  }
+
+  .content-container {
+      h4{
+          width: 65%;
+      }
+  }
