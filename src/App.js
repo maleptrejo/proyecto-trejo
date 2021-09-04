@@ -3,20 +3,22 @@ import * as Icon from 'react-bootstrap-icons';
 import './Styles/index.scss';
 import NavBar from './Components/NavBar/NavBar';
 import Landing from './Components/Landing/Landing';
+import { Cart } from './Components/CartContainer/Cart';
 import ItemsListContainer from './Components/ItemsListContainer/ItemsListContainer';
 import {
   BrowserRouter,
   Switch,
   Route,
   Redirect,
-  Link
 } from "react-router-dom";
 import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
+import { CartProvider } from './Context/CartContext';
 
 
 function App() {
   return (
-    <BrowserRouter> 
+    <CartProvider>
+      <BrowserRouter> 
           <NavBar/>
           <Switch>
               <Route exact path="/">
@@ -29,11 +31,15 @@ function App() {
               <Route exact path="/category/:catId">
                   <ItemsListContainer />
               </Route>
+              <Route exact path="/cart">
+                  <Cart />
+              </Route>
               <Route path="*">
                     <Redirect to="/"/>
               </Route>
           </Switch>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

@@ -1,5 +1,7 @@
 @import 'NavBar';
 @import 'Landing';
+@import 'Buttons';
+@import 'ItemDetail';
 @import 'variables';
 
 
@@ -26,6 +28,11 @@ hr{
     background-color: $base-gray;
 }
 
+h2{
+    text-transform: uppercase;
+
+}
+
 .font-quicksand{
     font-family: 'Quicksand', sans-serif;
 }
@@ -39,10 +46,11 @@ hr{
     font-family: 'Alumni Sans', sans-serif;
 }
 
-.img-container{
-    height: 270px;
-    background-color: black;
 
+.img-container{
+    //height: 270px;
+    //background-color: black;
+    overflow: hidden;
     img{
         width: 100%;
         object-fit: contain;
@@ -138,19 +146,7 @@ input[type=number]{
   
 }
 
-.basket-2-text {
-    height: 35px;
-    background-color: black;
-    color: white;
-    width: 140px;
-    border-radius:0;
-    border: none;
-    padding: 0 10px;
-    &:hover {
-        color: white;
-        
-    }
-}
+
 
 .shrink-on-hover {
     display: inline-block;
@@ -171,5 +167,6 @@ input[type=number]{
   .content-container {
       h4{
           width: 65%;
+          font-size: 1em;
       }
   }

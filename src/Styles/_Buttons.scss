@@ -1,0 +1,45 @@
+@import 'variables';
+
+button{
+    border: none;
+    &:active{
+        border: none;
+    }
+    &:focus {
+        border: none;
+    }
+}
+
+.counter-btns-container {
+    border: 1px solid $dark-gray;
+    height: 35px;
+    line-height: 35px;
+    
+    button {
+        background-color: white;
+    }
+
+    span{
+        width: 60px;
+    }
+}
+
+.basket-2-text {
+    height: 35px;
+    background-color: black;
+    color: white;
+    
+    border-radius:0;
+    border: none;
+    
+    margin-left: 10px;
+    &:hover {
+        color: white;
+    }
+
+    &.take{
+        width: 140px;
+        padding: 0 10px;
+    }
+    
+}
