@@ -1,0 +1,27 @@
+
+
+
+.cart-td{
+    display: flex;
+    height: 75px;
+    align-items: center;
+}
+
+.cart-img{
+    .figure{
+        margin: 0;
+        .figure-img{
+            margin: 0;
+        } 
+    }
+}
+
+th:first-child{
+    span {
+        margin-left: 15px;
+    }
+}
+
+.span-subtotal{
+    margin-right:35px;
+}

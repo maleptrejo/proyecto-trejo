@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import * as Icon from 'react-bootstrap-icons';
 import './Styles/index.scss';
 import NavBar from './Components/NavBar/NavBar';
 import Landing from './Components/Landing/Landing';
@@ -44,9 +43,3 @@ function App() {
 }
 
 export default App;
-
-
-{/* <div className="App">
-      <NavBar/>
-      <ItemsListContainer greeting="Bienvenidos!"/>
-    </div> */}

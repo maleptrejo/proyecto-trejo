@@ -40,9 +40,7 @@ const NavBar = ()=> {
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item className="d-flex align-items-center">
-                  <Nav.Link>
-                    <CartWidget/>
-                  </Nav.Link>
+                  <Nav.Link eventKey="link-1"><Link to="/cart"> <CartWidget/></Link></Nav.Link>
                 </Nav.Item>
             </div>
         </Nav>

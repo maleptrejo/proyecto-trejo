@@ -22,6 +22,11 @@ button{
     span{
         width: 60px;
     }
+
+    &.counter-cart{
+        width: fit-content;
+        border: none;
+    }
 }
 
 .basket-2-text {
@@ -42,4 +47,23 @@ button{
         padding: 0 10px;
     }
     
+}
+
+.cart-qty-container{
+    position: relative;
+
+    .cart-qty {
+        background-color: rgba(255, 165, 0, 0.5%);
+        width: 15px;
+        height: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        font-size: .7rem;
+    
+        position: absolute;
+        top: -5px;
+        right: -10px;
+    }
 }

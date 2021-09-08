@@ -16,8 +16,8 @@ export const ItemDetailContainer= ()=>{
 
         stockManager()
         .then(r=>{
-            //setItem(r.find(item=> item.id=== parseInt(itemId)))
-            setItem(r.find(item=> item.id==itemId))
+            setItem(r.find(item=> item.id=== parseInt(itemId)))
+            //setItem(r.find(item=> item.id==itemId))
 
         })
         .finally(()=> { setLoading(false)})

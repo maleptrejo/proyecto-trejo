@@ -21,7 +21,7 @@ export const ItemDetail= ({id, price, name, img, description, catId, stock})=>{
                     img,
                     description,
                     catId,
-                    
+                    stock
                 },
                 qty
         })
@@ -70,19 +70,6 @@ export const ItemDetail= ({id, price, name, img, description, catId, stock})=>{
                                 addingToCartHandler={addingToCartHandler}
                                 isAdded={isInCart(id)}
                             />
-
-
-
-
-                            {/* <div className="">
-                                <button className=" basket-2-text d-flex justify-content-between align-items-center shrink-on-hover">
-                                    <span>Me los llevo</span>
-                                    <span className="d-flex align-items-center"><Basket2 /></span>
-                                </button>
-                            </div> */}
-
-
-
                         </div>
                     </div>
            </div>

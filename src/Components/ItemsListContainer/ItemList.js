@@ -3,7 +3,7 @@ import { Item } from './Item';
 
 export const ItemList=({products = [], title})=>{
 
-    if(title==undefined){
+    if(title===undefined){
         title="Nuestros productos"
     }
 return (
