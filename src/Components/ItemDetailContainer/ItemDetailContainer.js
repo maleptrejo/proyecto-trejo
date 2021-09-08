@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail';
-import { stockManager } from '../../Helpers/StockManager';
 import Spinner from 'react-bootstrap/Spinner';
+import { getFirestore } from '../../Firebase/index'
 
 export const ItemDetailContainer= ()=>{
  
@@ -14,15 +14,18 @@ export const ItemDetailContainer= ()=>{
     useEffect(()=>{
         setLoading(true)
 
-        stockManager()
-        .then(r=>{
-            setItem(r.find(item=> item.id=== parseInt(itemId)))
-            //setItem(r.find(item=> item.id==itemId))
+        const db = getFirestore()
+        const products = db.collection('products')
+        const item = products.doc(itemId)
 
-        })
-        .finally(()=> { setLoading(false)})
+        item.get()
+            .then((doc) => {
+            setItem( {...doc.data(), id: doc.id} )
+            })
+            .finally(()=> { setLoading(false)})
 
-    }, [itemId])
+
+    }, [itemId, setLoading])
 
     return (
         <div className="d-flex justify-content-center align-items-center mt-5">
