@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
 import { CartProvider } from './Context/CartContext';
+import { Checkout } from "./Components/Checkout/Checkout";
 
 
 function App() {
@@ -33,9 +34,13 @@ function App() {
               <Route exact path="/cart">
                   <Cart />
               </Route>
+              <Route exact path="/checkout">
+                  <Checkout/>
+              </Route>
               <Route path="*">
                     <Redirect to="/"/>
               </Route>
+              
           </Switch>
     </BrowserRouter>
     </CartProvider>

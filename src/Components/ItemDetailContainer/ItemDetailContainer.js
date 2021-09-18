@@ -11,7 +11,7 @@ export const ItemDetailContainer= ()=>{
     const [ item, setItem ]= useState(null);
     const [loading, setLoading] = useState(false)
 
-    useEffect(()=>{
+    useEffect(()=>{ 
         setLoading(true)
 
         const db = getFirestore()

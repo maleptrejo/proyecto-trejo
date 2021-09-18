@@ -81,18 +81,38 @@ export const Cart = () => {
                  </Table>
             
                 <div className="d-flex justify-content-between flex-row ">
-                    <div className="d-flex justify-content-start m-2 ">
+
+                    {/* <div className="d-flex justify-content-start m-2 ">
                         <button onClick={clearCart} className="take basket-2-text d-flex justify-content-center align-items-center shrink-on-hover ">
                             <span>Vaciar Carrito</span>      
                         </button> 
+                    </div> */}
+
+                    <div className="d-flex justify-content-start m-2 ">
+                        <Link to="/checkout">
+                            <button className="take basket-2-text d-flex justify-content-center align-items-center shrink-on-hover ">
+                                Terminar compra
+                            </button>
+                        </Link>
                     </div>
                    
                     <div className="d-flex justify-content-end m-2 font-weight-bold">
                         <span className="span-subtotal">Subtotal: $ {totalInCart}</span>
                     </div>
                 </div>
+
+
+                <div className="d-flex justify-content-start m-2 ">
+                        <button onClick={clearCart} className="take basket-2-text d-flex justify-content-center align-items-center shrink-on-hover clear-cart">
+                            <span>Vaciar Carrito</span>      
+                        </button> 
+                </div>
+
+                
             </div>
-        }
+       
+       
+       }
     </>
     )
 }

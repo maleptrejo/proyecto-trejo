@@ -67,3 +67,12 @@ button{
         right: -10px;
     }
 }
+
+.clear-cart{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    &:hover {
+        color: black;
+    }
+}
