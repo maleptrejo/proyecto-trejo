@@ -16,7 +16,6 @@ export const Checkout = () =>{
         email: ''
     })
 
-    //let regexMail=/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     let regexMail=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     let regexPhone=/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
 
@@ -28,10 +27,10 @@ export const Checkout = () =>{
         })
     }
 
-    const setErrorMsg=(text)=>{
+    const setErrorMsg=(title, text)=>{
         let errorObject={
             icon: 'error',
-            title: 'Campos inválidos',
+            title: title,
             text: text
         };
 
@@ -62,16 +61,20 @@ export const Checkout = () =>{
         } else {
 
             if(!isMailOk){
-                Swal.fire(setErrorMsg("Su email no coincide"))
+                Swal.fire(setErrorMsg("Revise su email", "Su email no coincide"))
                
-            }else if(!regexMail.test(buyer.email)){
-                Swal.fire(setErrorMsg("Revise el formato de su email"))
-               
-            }else if(!regexPhone.test(buyer.phone)){
-                Swal.fire(setErrorMsg("SRevise el formato de su teléfono"))
+            }
+            else if(!regexPhone.test(buyer.phone)){
+                console.log("error de phone")
+                Swal.fire(setErrorMsg("Formato de teléfono incorrecto", "No olvide incluir el código de área"))
                 
+            }
+            else if(!regexMail.test(buyer.email)){
+                console.log("error de mail")
+                Swal.fire(setErrorMsg("Revise su email", "El email debe tener @ y un dominio válido"))
+               
             }else if(buyer.name.length <= 3){
-                Swal.fire(setErrorMsg("Ingrese un nombre válido"))
+                Swal.fire(setErrorMsg("Revise sus datos personales", "Ingrese un nombre válido o que tenga más de tres caracteres"))
                
             }
 
@@ -141,18 +144,7 @@ export const Checkout = () =>{
                             placeholder="jose@perez.com"
                             required/>
                         </Form.Group>
-                        </div>
-
-                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label className="font-alumni">Email</Form.Label>
-                            <Form.Control 
-                            type="email"
-                            value={buyer.email}
-                            onChange={handleInputChange}
-                            name="email"
-                            placeholder="jose@perez.com"
-                            required/>
-                        </Form.Group> */}
+                        </div> 
                     </div>
 
                     <div className="w-50 d-flex flex-column justify-content-between align-items-center pb-2">
@@ -173,32 +165,6 @@ export const Checkout = () =>{
                         </div>
                     </div>
                 </Form>
-
-
-                    {/* <form onSubmit={handleSubmit} className="d-flex flex-column">
-                        <input
-                            type="text"
-                            value={buyer.name}
-                            onChange={handleInputChange}
-                            name="name"
-                            required
-                        />
-                        <input
-                            type="tel"
-                            value={buyer.phone}
-                            onChange={handleInputChange}
-                            name="phone"
-                            required
-                        />
-                        <input
-                            type="email"
-                            value={buyer.email}
-                            onChange={handleInputChange}
-                            name="email"
-                            required
-                        />
-                        <button type="submit">Submit</button>
-                    </form> */}
                 </div>
                 
             </section>
