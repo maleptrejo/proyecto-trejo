@@ -51,7 +51,6 @@ export const orderCtrl=(buyer, cart, total)=>{
         //fin falla//
         
 
-
         if (outOfStock.length === 0) {
             orders.add(newOrder)
                 .then((res) => {
