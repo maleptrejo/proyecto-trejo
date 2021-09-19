@@ -6,12 +6,14 @@ export const CartProvider = ({children})=>{
 
     const [ cart, setCart ] = useState([])
 
+    const [order, setOrder]=useState([])
+
 
     const changeQtyInCart=(prod, direction)=>{
         let newCart=[...cart]
         let index= newCart.findIndex(i=>i.item.id===prod.item.id)
 
-        console.log(prod.item.stock)
+        //(prod.item.stock)
         if ( direction === 'up' && prod.qty<prod.item.stock){
 
             newCart[index].qty = newCart[index].qty+1
@@ -22,8 +24,21 @@ export const CartProvider = ({children})=>{
             setCart(newCart)
         }
         
-        
     }
+
+    const getItemsFromCart=(cart)=>{
+      let items=[];
+      cart.map(c=>{
+          let item={
+              category: c.item.catId,
+              id: c.item.id,
+              unit_price: c.item.price,
+              qty: c.qty
+          }
+          items=[...items, item]
+      })
+      setOrder(items)
+  }
 
     // const addCart = (prod)=>{
     //     if(isInCart(prod.item.id)){
@@ -84,7 +99,7 @@ export const CartProvider = ({children})=>{
     }
 
     return (
-        <CartContext.Provider value={{cart, addCart, isInCart, deleteFromCart, clearCart, changeQtyInCart, totalInCart, itemsInCart}}>
+        <CartContext.Provider value={{getItemsFromCart, order, cart, addCart, isInCart, deleteFromCart, clearCart, changeQtyInCart, totalInCart, itemsInCart}}>
             {children}
         </CartContext.Provider>
     )

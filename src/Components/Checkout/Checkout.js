@@ -28,6 +28,8 @@ export const Checkout = () =>{
 
         //hacer un validador mas piola
         if (buyer.name.length > 3 && buyer.email.length > 3 && buyer.phone.length > 5) {
+            //aca fx que convierte cart a order. No pasar cart, pasar order.
+           
             orderCtrl(buyer, cart, totalInCart)
                 .then( res => {
                     Swal.fire({
