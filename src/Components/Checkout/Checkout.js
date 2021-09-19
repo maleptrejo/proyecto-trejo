@@ -16,27 +16,42 @@ export const Checkout = () =>{
         email: ''
     })
 
+    //let regexMail=/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let regexMail=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    let regexPhone=/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+
     const handleInputChange= (e)=>{
+       
         setBuyer({
             ...buyer,
             [e.target.name]: e.target.value
         })
     }
 
+    const setErrorMsg=(text)=>{
+        let errorObject={
+            icon: 'error',
+            title: 'Campos inválidos',
+            text: text
+        };
+
+        return errorObject;
+    }
+
     const handleSubmit = (e)=>{
         e.preventDefault()
 
-        //hacer un validador mas piola
-        if (buyer.name.length > 3 && buyer.email.length > 3 && buyer.phone.length > 5) {
-            //aca fx que convierte cart a order. No pasar cart, pasar order.
-           
+        let isMailOk= e.target.email_confirm.value===buyer.email? true: false;
+
+        if(buyer.name.length > 3 && regexMail.test(buyer.email) && regexPhone.test(buyer.phone) && isMailOk) {
+            
             orderCtrl(buyer, cart, totalInCart)
                 .then( res => {
                     Swal.fire({
                         icon: 'success',
                         title: 'Su compra fue registrada!',
                         text: `Guarde este identificador: ${res}`,
-                        confirmButtonText: 'Genial!'
+                        confirmButtonText: 'Guardando!'
                     })
 
                     clearCart()
@@ -45,11 +60,21 @@ export const Checkout = () =>{
                     console.log(err)
                 })
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Campos inválidos',
-                text: 'Revise su información'
-              })
+
+            if(!isMailOk){
+                Swal.fire(setErrorMsg("Su email no coincide"))
+               
+            }else if(!regexMail.test(buyer.email)){
+                Swal.fire(setErrorMsg("Revise el formato de su email"))
+               
+            }else if(!regexPhone.test(buyer.phone)){
+                Swal.fire(setErrorMsg("SRevise el formato de su teléfono"))
+                
+            }else if(buyer.name.length <= 3){
+                Swal.fire(setErrorMsg("Ingrese un nombre válido"))
+               
+            }
+
         }
 
     }
@@ -73,7 +98,7 @@ export const Checkout = () =>{
 
                 <Form className="d-flex flex-row w-100" onSubmit={handleSubmit}>
                     <div className="w-50"> 
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label className="font-alumni">Nombre</Form.Label>
                             <Form.Control type="text"
                             value={buyer.name}
@@ -83,18 +108,20 @@ export const Checkout = () =>{
                             required />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="formBasicPhone">
                             <Form.Label className="font-alumni">Teléfono</Form.Label>
                             <Form.Control 
                             type="tel"
                             value={buyer.phone}
                             onChange={handleInputChange}
                             name="phone"
-                            placeholder="12341234"
+                            placeholder="(011)12341234"
                             required />
                         </Form.Group>
                         
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+
+                        <div className="d-flex flex-row w-100">
+                        <Form.Group className="mb-3 w-50 mr-10" controlId="formBasicEmail">
                             <Form.Label className="font-alumni">Email</Form.Label>
                             <Form.Control 
                             type="email"
@@ -104,6 +131,28 @@ export const Checkout = () =>{
                             placeholder="jose@perez.com"
                             required/>
                         </Form.Group>
+
+                        <Form.Group className="mb-3 w-50 ml-10" controlId="formBasicEmailConfirm">
+                            <Form.Label className="font-alumni">Confirmar Email</Form.Label>
+                            <Form.Control 
+                            type="email_confirm"
+                            value={buyer.email_confirm}
+                            name="email_confirm"
+                            placeholder="jose@perez.com"
+                            required/>
+                        </Form.Group>
+                        </div>
+
+                        {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label className="font-alumni">Email</Form.Label>
+                            <Form.Control 
+                            type="email"
+                            value={buyer.email}
+                            onChange={handleInputChange}
+                            name="email"
+                            placeholder="jose@perez.com"
+                            required/>
+                        </Form.Group> */}
                     </div>
 
                     <div className="w-50 d-flex flex-column justify-content-between align-items-center pb-2">

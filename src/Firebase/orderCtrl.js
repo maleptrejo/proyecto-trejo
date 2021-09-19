@@ -39,17 +39,16 @@ export const orderCtrl=(buyer, cart, total)=>{
         const outOfStock = []
 
 
-        //FALLA: cart.find está recibiendo un doc undefined.//
+        
         query.docs.forEach((doc) => {
-            const itemInCart = cart.find(prod => prod.item.id === doc.item.id)
+            const itemInCart = cart.find(prod => prod.item.id === doc.id)
             if (doc.data().stock >= itemInCart.qty ) {
                 batch.update(doc.ref, {stock: doc.data().stock - itemInCart.qty })
             } else {
                 outOfStock.push({id: doc.id, ...doc.data()})
             }
         })
-        //fin falla//
-        
+      
 
         if (outOfStock.length === 0) {
             orders.add(newOrder)
