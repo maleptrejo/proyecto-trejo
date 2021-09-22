@@ -24,13 +24,23 @@ Cuenta con
 Uso de Bootstrap para dar formato a la aplicación.
 
 Uso de Bootstrap Icons para acceder a iconos.
+
+Los desarrollan los estilos por medio de SASS como transpilador de css.
 ​
 Uso de React Router Dom para la navegación.
+
+Uso de Context para manejo de estados.
+
+Se imnplementa servidor en Firebase y se consume por medio de Firestore.
+
+Se implementa librería Sweet Alert para manejar popups de notificación y confirmación.
+
+
 
 ​
 ## Aplicación en funcionamiento
 ​
-![Chez Didi en funcionamiento](https://github.com/maleptrejo/proyecto-trejo/blob/main/Chez_didi_navigation.gif)
+![Chez Didi en funcionamiento](https://github.com/maleptrejo/proyecto-trejo/blob/main/CPT2109220105-1144x554.gif)
 ​
 ### Autor
 ​
