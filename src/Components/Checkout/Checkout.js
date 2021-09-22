@@ -8,79 +8,79 @@ import Figure from 'react-bootstrap/Figure'
 
 export const Checkout = () =>{
 
-    const {cart, totalInCart, clearCart} = useContext(CartContext)
+    const {handleSubmit, setErrorMsg, handleInputChange, regexMail,regexPhone, cart, totalInCart, clearCart, buyer, setBuyer} = useContext(CartContext)
 
-    const [buyer, setBuyer]= useState({
-        name: '',
-        phone: '',
-        email: ''
-    })
+    // const [buyer, setBuyer]= useState({
+    //     name: '',
+    //     phone: '',
+    //     email: ''
+    // })
 
-    let regexMail=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    let regexPhone=/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+    // let regexMail=/^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    // let regexPhone=/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
 
-    const handleInputChange= (e)=>{
+    // const handleInputChange= (e)=>{
        
-        setBuyer({
-            ...buyer,
-            [e.target.name]: e.target.value
-        })
-    }
+    //     setBuyer({
+    //         ...buyer,
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
-    const setErrorMsg=(title, text)=>{
-        let errorObject={
-            icon: 'error',
-            title: title,
-            text: text
-        };
+    // const setErrorMsg=(title, text)=>{
+    //     let errorObject={
+    //         icon: 'error',
+    //         title: title,
+    //         text: text
+    //     };
 
-        return errorObject;
-    }
+    //     return errorObject;
+    // }
 
-    const handleSubmit = (e)=>{
-        e.preventDefault()
+    // const handleSubmit = (e)=>{
+    //     e.preventDefault()
+        
+    //     let isMailOk= e.target.email_confirm.value===buyer.email;
 
-        let isMailOk= e.target.email_confirm.value===buyer.email? true: false;
-
-        if(buyer.name.length > 3 && regexMail.test(buyer.email) && regexPhone.test(buyer.phone) && isMailOk) {
+    //     if(buyer.name.length > 3 && regexMail.test(buyer.email) && regexPhone.test(buyer.phone) && isMailOk) {
             
-            orderCtrl(buyer, cart, totalInCart)
-                .then( res => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Su compra fue registrada!',
-                        text: `Guarde este identificador: ${res}`,
-                        confirmButtonText: 'Guardando!'
-                    })
+    //         orderCtrl(buyer, cart, totalInCart)
+    //             .then( res => {
+    //                 Swal.fire({
+    //                     icon: 'success',
+    //                     title: 'Su compra fue registrada!',
+    //                     text: `Guarde este identificador: ${res}`,
+    //                     confirmButtonText: 'Guardando!'
+    //                 })
 
-                    clearCart()
-                })
-                .catch( err => {
-                    console.log(err)
-                })
-        } else {
+    //                 clearCart()
+    //             })
+    //             .catch( err => {
+    //                 Swal.fire(setErrorMsg("Error 500", "Realice la operación más tarde"))
+    //             })
+    //     } else {
 
-            if(!isMailOk){
-                Swal.fire(setErrorMsg("Revise su email", "Su email no coincide"))
+    //         if(!isMailOk){
+    //             Swal.fire(setErrorMsg("Revise su email", "Su email no coincide"))
                
-            }
-            else if(!regexPhone.test(buyer.phone)){
-                console.log("error de phone")
-                Swal.fire(setErrorMsg("Formato de teléfono incorrecto", "No olvide incluir el código de área"))
+    //         }
+    //         else if(!regexPhone.test(buyer.phone)){
+       
+    //             Swal.fire(setErrorMsg("Formato de teléfono incorrecto", "No olvide incluir el código de área"))
                 
-            }
-            else if(!regexMail.test(buyer.email)){
-                console.log("error de mail")
-                Swal.fire(setErrorMsg("Revise su email", "El email debe tener @ y un dominio válido"))
+    //         }
+    //         else if(!regexMail.test(buyer.email)){
+                
+    //             Swal.fire(setErrorMsg("Revise su email", "El email debe tener @ y un dominio válido"))
                
-            }else if(buyer.name.length <= 3){
-                Swal.fire(setErrorMsg("Revise sus datos personales", "Ingrese un nombre válido o que tenga más de tres caracteres"))
+    //         }else if(buyer.name.length <= 3){
+    //             Swal.fire(setErrorMsg("Revise sus datos personales", "Ingrese un nombre válido o que tenga más de tres caracteres"))
                
-            }
+    //         }
 
-        }
+    //     }
 
-    }
+    // }
 
     return (
         <> 

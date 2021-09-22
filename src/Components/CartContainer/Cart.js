@@ -82,12 +82,6 @@ export const Cart = () => {
             
                 <div className="d-flex justify-content-between flex-row ">
 
-                    {/* <div className="d-flex justify-content-start m-2 ">
-                        <button onClick={clearCart} className="take basket-2-text d-flex justify-content-center align-items-center shrink-on-hover ">
-                            <span>Vaciar Carrito</span>      
-                        </button> 
-                    </div> */}
-
                     <div className="d-flex justify-content-start m-2 ">
                         <Link to="/checkout">
                             <button className="take basket-2-text d-flex justify-content-center align-items-center shrink-on-hover ">

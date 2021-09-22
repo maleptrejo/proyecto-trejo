@@ -3,9 +3,6 @@ import { CartContext } from '../../Context/CartContext';
 import { Plus } from 'react-bootstrap-icons';
 import { Dash } from 'react-bootstrap-icons';
 
-
-
-//falta "AGREGADO" para renderizado condicional de botonera
 export const CounterCart= ({prod}) => {
 
 

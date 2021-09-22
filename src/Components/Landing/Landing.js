@@ -15,7 +15,7 @@ const Landing = () => {
                     </div>
                     
                 </div>
-                {/* <img src="https://i.ibb.co/GJYsqQy/breadbaking.jpg" alt="panes"/> */}
+           
             </div>
         </section>
     )

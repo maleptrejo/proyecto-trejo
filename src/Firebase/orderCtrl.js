@@ -20,7 +20,8 @@ export const orderCtrl=(buyer, cart, total)=>{
                 unit_price: c.item.price,
                 qty: c.qty
             }
-            items.push(item)
+            return items.push(item)
+            
         })
         
         const newOrder={

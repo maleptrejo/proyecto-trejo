@@ -25,9 +25,7 @@ const NavBar = ()=> {
                 <Nav.Item>
                   <Nav.Link eventKey="link-1" to="/category/insumos" as={Link}> Insumos</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-2">Recetas</Nav.Link>
-                </Nav.Item>
+                
                 <Nav.Item>
                   <Nav.Link eventKey="disabled" disabled>
                     Fans friendly!

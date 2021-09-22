@@ -13,8 +13,19 @@
 
 .nav-link{
     color: $base-gray;
+    
+    &:active{
+        color: $orange-strong;
+    }
+    &:focus{
+        color: $orange-strong;
+    }
+    &:hover{
+        color: $orange-strong !important;
+    }
 }
 
 .nav{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
+

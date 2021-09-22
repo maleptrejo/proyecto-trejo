@@ -3,9 +3,6 @@ import { Plus } from 'react-bootstrap-icons';
 import { Dash } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 
-
-
-//falta "AGREGADO" para renderizado condicional de botonera
 export const Counter= ({qty, setQty, max, addingToCartHandler, isAdded}) => { 
 
     const handleSumm = () => {
